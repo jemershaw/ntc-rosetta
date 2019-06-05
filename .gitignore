@@ -4,4 +4,5 @@ __pycache__
 .coverage
 _build
 .ipynb_checkpoints
+env/
 pip-wheel-metadata/

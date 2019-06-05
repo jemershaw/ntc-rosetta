@@ -34,6 +34,8 @@ class Vlan(Parser):
 
         def extract_elements(self) -> Iterator[Tuple[str, Dict[str, Any]]]:
             for k, v in jh.query("vlan", self.native, default={}).items():
+                if not k.isdigit():
+                    continue
                 if k == "#text":
                     continue
                 yield k, cast(Dict[str, Any], v)

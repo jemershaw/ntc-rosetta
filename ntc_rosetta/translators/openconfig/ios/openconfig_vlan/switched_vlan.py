@@ -22,6 +22,10 @@ class SwitchedVlanConfig(Translator):
         else:
             self.yy.result.add_command(f"   switchport access vlan 1")
 
+    def native_vlan(self, value: Optional[str]) -> None:
+        if value:
+            self.yy.result.add_command(f"   switchport trunk native vlan {value}")
+
     def trunk_vlans(self, value: Optional[List[str]]) -> None:
         if value:
             vlans_str = ",".join([str(v) for v in value])
